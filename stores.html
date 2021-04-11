@@ -24,9 +24,9 @@
         <div class="container"><a class="navbar-brand" href="index.html">Pro-Local</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="about.html" data-toggle="tab" role="tab">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="stores.html" data-toggle="tab" role="tab">Stores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="shop.html" data-toggle="tab" role="tab">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="stores.html">Stores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="search"></div>
@@ -38,7 +38,7 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Stores&nbsp;</h2>
-                <p class="text-center">All listed stores are Canadian owned and operated. The catalogue is expanding feel free to add to our collection of stores listed here!</p><a class="btn btn-primary btn-block" role="button">List My Business!</a>
+                <p class="text-center">All listed stores are Canadian owned and operated. The catalogue is expanding feel free to add to our collection of stores listed here!</p><a class="btn btn-primary btn-block" role="button" data-toggle="modal" data-target="#modal-add-shop-info">List My Business!</a>
             </div>
             <div class="row articles">
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>
@@ -56,7 +56,7 @@
             </div>
         </div>
     </section>
-    <div class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-add-shop-info">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
