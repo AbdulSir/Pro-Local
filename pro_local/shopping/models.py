@@ -4,7 +4,7 @@ from django.db import models
 
  class Shop(models.Model):
      s_name = models.CharField(null=False, blank=False, max_length=80, unique=True)
-     p_FK = models.ForeignKey(Product, on_delete=models.CASCADE)
+     #p_FK = models.ForeignKey(Product, on_delete=models.CASCADE)
      address = models.CharField(max_length=120)
      city = models.CharField(max_length=120)
      province = models.CharField(max_length=120)

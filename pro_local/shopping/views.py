@@ -37,9 +37,16 @@ def shop(request):
     # this takes care of generating all the information for the inventory view.
     context = {}
     if request.method == 'GET':
-        context = {
-
-        }
+        queryDict = request.GET
+        search = queryDict.get('search', None)
+        if search is not None:
+            found = Shop.objects.all()#TODO: Change this to a contains
+            if found is not None:
+                context = {
+                    "search": found,  
+                }
+        else:
+            return HttpResponseNotFound("No Products Found")
     return render(request, 'shop.html', context=context) # render the view
 
 def stores(request):
@@ -49,10 +56,16 @@ def stores(request):
         queryDict = request.GET
         store = queryDict.get('name', None)
         if store is not None:
-            Shop.objects.filter(s_name=store).first()
+            found = Shop.objects.filter(s_name=store).first()
+            if found is not None:
+                context = {
+                    "name": found.s_name,  
+                    "street": found.address, 
+                    "city": found.city, 
+                    "prov": found.province, 
+                    "blurb": found.blurb, 
+                    "postal": found.postal_code, 
+                }
         else:
             return HttpResponseNotFound("No Store Found")
-        context = {
-
-        }
     return render(request, 'stores.html', context=context) # render the view
