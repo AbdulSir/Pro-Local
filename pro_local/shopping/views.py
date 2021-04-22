@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import urllib.request
 import json
-# Create your views here.
+from shopping.models import *
 
+# Create your views here.
 
 def mapsAPITest(request):
     google_map_api_key = "AIzaSyATsUAiN8HGEmtdItkO3n5E74FEKAelw5o"
@@ -45,6 +46,12 @@ def stores(request):
     # this takes care of generating all the information for the inventory view.
     context = {}
     if request.method == 'GET':
+        queryDict = request.GET
+        store = queryDict.get('name', None)
+        if store is not None:
+            Shop.objects.filter(s_name=store).first()
+        else:
+            return HttpResponseNotFound("No Store Found")
         context = {
 
         }

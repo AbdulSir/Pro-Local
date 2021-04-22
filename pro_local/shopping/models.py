@@ -8,6 +8,7 @@ from django.db import models
      address = models.CharField(max_length=120)
      city = models.CharField(max_length=120)
      province = models.CharField(max_length=120)
+     blurb = models.CharField(max_length=1000)
      postal_code = models.CharField(max_length=6)
 
 #     def __str__(self):
