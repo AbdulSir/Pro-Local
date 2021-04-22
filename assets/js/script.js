@@ -5,6 +5,13 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
+  function killCookie(cname, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() - (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + ";" + expires + ";path=/";
+  }
+
   function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -21,24 +28,25 @@ function setCookie(cname, cvalue, exdays) {
     return "";
   }
 
-/*
-
-
-				<div class="row">
-        ---
-
-					<div class="col-md-4">
-						<div class="aligned">
-							<button class="btn btn-primary" type="button" style="background: #bd1e51;" "border: 2px solid #f44336;">Add to cart</button>
-						</div>
-					</div>
-				</div>$$$
-
-  
-
-*/
-
 //COOKIE FORMAT: PLCART-SNAME-PNAME
+//the following 
+
+function cartCookies(){
+  //find the value of the given cookies 
+  var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
 
 function createShopNode(image, name, store, price, distance){
   //the outer div
