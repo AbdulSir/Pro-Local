@@ -6,6 +6,22 @@ from shopping.models import *
 
 # Create your views here.
 
+def shop(request):
+    # this takes care of generating all the information for the inventory view.
+    context = {}
+    # if request.method == 'GET':
+    #     queryDict = request.GET
+    #     search = queryDict.get('search', None)
+    #     if search is not None:
+    #         found = Shop.objects.all()#TODO: Change this to a contains
+    #         if found is not None:
+    #             context = {
+    #                 "search": found,  
+    #             }
+    #     else:
+    #         return HttpResponseNotFound("No Products Found")
+    return render(request, 'shop.html', context=context) # render the view
+
 def mapsAPITest(request):
     google_map_api_key = "AIzaSyATsUAiN8HGEmtdItkO3n5E74FEKAelw5o"
     origin = "H4N+3B6" #user postal code
@@ -32,22 +48,6 @@ def about(request):
 
         }
     return render(request, 'about.html', context=context) # render the view
-
-def shop(request):
-    # this takes care of generating all the information for the inventory view.
-    context = {}
-    if request.method == 'GET':
-        queryDict = request.GET
-        search = queryDict.get('search', None)
-        if search is not None:
-            found = Shop.objects.all()#TODO: Change this to a contains
-            if found is not None:
-                context = {
-                    "search": found,  
-                }
-        else:
-            return HttpResponseNotFound("No Products Found")
-    return render(request, 'shop.html', context=context) # render the view
 
 def stores(request):
     # this takes care of generating all the information for the inventory view.
