@@ -5,9 +5,9 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
-  function killCookie(cname, exdays) {
+  function killCookie(cname) {
     var d = new Date();
-    d.setTime(d.getTime() - (exdays*24*60*60*1000));
+    d.setTime(d.getTime() - (24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + ";" + expires + ";path=/";
   }
@@ -28,24 +28,39 @@ function setCookie(cname, cvalue, exdays) {
     return "";
   }
 
-//COOKIE FORMAT: PLCART-SNAME-PNAME
+//COOKIE FORMAT: PLCART-SNAME-PNAME-PRICE
 //the following 
+
+function addToCart(code){
+  var test = getCookie(code);
+  if (test!=""){
+    //kill the value of the cookie
+    killCookie(code);
+    
+  } else {
+
+  }
+}
 
 function cartCookies(){
   //find the value of the given cookies 
-  var name = cname + "=";
+  var name = "PLCART-";
+  //JSON object to return
+  var ret = {"0":{}};
+  var count =1;
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for(var i = 0; i <ca.length; i++) {
       var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
+      if (c.includes("PLCART")){
+        var item = c.split('=');
+        itemData = item[0].split("-");
+        key = ""+count;
+        ret[key] = {"STORE":itemData[1],"NAME":itemData[2],"PRICE":itemData[3]};
+        count = count +1;
       }
     }
-    return "";
+    return ret;
 }
 
 function createShopNode(image, name, store, price, distance){

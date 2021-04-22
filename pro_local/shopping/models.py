@@ -18,7 +18,7 @@ class Product(models.Model):
     p_keys = models.CharField(null=False, blank=False, max_length=160, unique=True)
     price = models.DecimalField(decimal_places=2, null=False, blank=False, max_digits=9)
     s_FK = models.ForeignKey(Shop, on_delete=models.CASCADE)
-    img = models.ImageField(blank=False, null=False)
+    img = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.p_name
