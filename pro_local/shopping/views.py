@@ -65,13 +65,15 @@ def cart(request):
         #check if this is a cart cookie
         #PLCART-SNAME-PNAME
         if "PLCART" in key:
-            keys = key.split("-")
+            keys = key.split("-:-")
             if len(keys)>=3:
                 #at least 3 parts to the key, find me the store
                 store = Shop.objects.filter(s_name=keys[1]).first()               
                 if store is not None:
+                    print(store)
                     product = Product.objects.filter(s_FK=store).filter(p_name=keys[2]).first()
                     if product is not None:
+                        print(product)
                         products = {}
                         name = keys[1]
                         total = 0
