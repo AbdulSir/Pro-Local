@@ -103,25 +103,8 @@ def cart(request):
                         print(shop)
                         context["shops"][name] = shop
     print(context)
-    return render(request, 'cart.html', context = context) # render the view
+    return render(request, 'cart.html', context=context) # render the view
 
-"""
-{'
-shops': {
-    'Kotn': {
-        'products': {
-            'Kotn-Sheet Set': {'qty': 2, 'price': Decimal('105.00'), 'value': Decimal('210.00'), 'img': 'https://cdn.shopify.com/s/files/1/0932/1356/products/IMG_4059_1600x_crop_center.jpg?v=1618601583', 'link': 'https://kotn.com/products/sheet-set?collection=home&colour=white&size=double'},
-            'Kotn-Veja V-10 Sneaker': {'qty': 1, 'price': Decimal('200.00'), 'value': Decimal('200.00'), 'img': 'https://cdn.shopify.com/s/files/1/0932/1356/products/fullsizeoutput_8_1600x_crop_center.jpg?v=1588705179', 'link': 'https://kotn.com/products/veja-v-10-sneaker?collection=search&colour=nautico&shoe-size=35'}
-        },
-            'name': 'Kotn',
-            'total': Decimal('410.00'),
-            'link': 'https://kotn.com/',
-            'distance': '5.6 km'
-    }
-}
-}
-
-"""
 
 def about(request):
     return render(request, 'about.html') # render the view
