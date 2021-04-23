@@ -5,17 +5,16 @@
         <div class="container"><div class="cart-heading" style="text-align: center; font-size: 28px; color:#490b3d">Cart</div>
         <div class="center"></div>
             <div>
-            {% if shops %}
-                {{shops}}
-                {% for shop in shops %}
+            {% if shops|safe %}
+                {% for shop|safe in shops|safe %}
                     <div class="brand-card"><div class="card-space"></div>
                         <div class="row">
                             <div class="col">
                                 <div>
                                     <div class="col">
                                         <div class="cart-items">
-                                            {%if shop__products|safe %}
-                                                {% for product in shop__products|safe %}
+                                            {%if shop.products|safe %}
+                                                {% for product|safe in shop.products|safe %}
                                                     <div class="row">
                                                         <div class="col"><a href="{{ product.link }}"><img src="{{ product.img }}" width="150" height="150"></a></div>
                                                         <div class="col">
