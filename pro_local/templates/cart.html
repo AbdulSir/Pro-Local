@@ -6,7 +6,7 @@
         <div class="center"></div>
             <div>
             {% if shops %}
-                {% for shop in shops %}
+                {% for key, shop in shops.items %}
                     <div class="brand-card"><div class="card-space"></div>
                         <div class="row">
                             <div class="col">
@@ -14,7 +14,7 @@
                                     <div class="col">
                                         <div class="cart-items">
                                             {%if shop.products %}
-                                                {% for product in shop.products|safe %}
+                                                {% for key, product in shop.products.items %}
                                                     <div class="row">
                                                         <div class="col"><a href="{{ product.link }}"><img src="{{ product.img }}" width="150" height="150"></a></div>
                                                         <div class="col">
