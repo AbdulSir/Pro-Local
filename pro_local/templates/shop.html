@@ -59,7 +59,7 @@
 								</select>
 								<!-- onclick function below takes in two parameters, the product pk and the quantity of the product
 								You can change the parameter to each field of the product instead of the pk and accessing them later -->
-								<button class="btn btn-primary" onclick="addToCart( '{{product.pk}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Add to cart</button>
+								<button class="btn btn-primary" onclick="addToCart( 'PLCART-{{product.s_FK.s_name}}-{{product.p_name}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Add to cart</button>
 							</div>
 						</div>
 					</div>

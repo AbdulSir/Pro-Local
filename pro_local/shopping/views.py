@@ -56,7 +56,38 @@ def shop(request):
     return render(request, 'shop.html', context=context) # render the view
 
 def cart(request):
-    return render(request, 'cart.html') # render the view
+    #iterate the cookies to find the store cookies
+    context = {"shops":{}}
+    for key, value in request.COOKIES:
+        #check if this is a cart cookie
+        #PLCART-SNAME-PNAME
+        if "PLCART" in key:
+            keys = key.split("-")
+            if len(keys)>=3:
+                #at least 3 parts to the key, find me the store
+                store = Shop.objects.filter(s_name=keys[1]).first()               
+                if store is not None:
+                    product = Product.objects.filter(s_FK=store).filter(p_name=keys[2]).first()
+                    if store is not None:
+                        products = {}
+                        name = keys[1]
+                        total = 0
+                        link = shop.s_link
+                        distance = shop.distance
+                        #probuct values
+                        qty = int(value)
+                        productPrice = product.price
+                        productName = product.p_name
+                        productLink = product.p_link
+                        productValue = product.price*qty
+                        productImg = product.img
+                        #set the shop if it does not exist already
+                        shop = context[shops].get(name, {"products":products, "name":name, "total":total, "link":link, "distance":distance})
+                        #update the shops stored total
+                        shop["total"] = shop["total"]+productValue
+                        shop["products"][name+"-"+productName] = {"qty":qty, "price":productPrice, "value":productValue, "img":product.img, "link":productLink}
+                        context[shops][name] = shop
+    return render(request, 'cart.html', context = context) # render the view
 
 def about(request):
     return render(request, 'about.html') # render the view

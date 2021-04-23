@@ -28,7 +28,7 @@ function getCookie(cname) {
   return "";
 }
 
-//COOKIE FORMAT: PLCART-SNAME-PNAME-PRICE
+//COOKIE FORMAT: PLCART-SNAME-PNAME
 //the following 
 
 function addToCart(code, qty){
@@ -98,6 +98,7 @@ function getStoreTotal(store){
     return ret;  
 }
 
+//depri below
 function cartCookies(){
 //find the value of the given cookies 
 var name = "PLCART-";
