@@ -75,8 +75,8 @@ def cart(request):
                         products = {}
                         name = keys[1]
                         total = 0
-                        link = shop.s_link
-                        distance = shop.distance
+                        link = store.s_link
+                        distance = store.distance
                         #probuct values
                         qty = int(value)
                         productPrice = product.price

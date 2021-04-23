@@ -32,6 +32,7 @@ function getCookie(cname) {
 //the following 
 
 function addToCart(code, qty){
+alert("Added To Cart")
 var test = getCookie(code);
 if (test!=""){
   //kill the value of the cookie
