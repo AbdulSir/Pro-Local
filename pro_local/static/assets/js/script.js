@@ -69,6 +69,35 @@ if(parseInt(qty)>0){
 }
 }
 
+function getCartQty(code){
+  var ret = getCookie(code);
+  if (ret!=""){
+    return parseInt(ret);
+  }
+  return 0;
+}
+
+function getStoreTotal(store){
+  //find the value of the given cookies 
+  var name = "PLCART-";
+  //JSON object to return
+  var ret = 0;
+  var count =1;
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      if (c.includes("PLCART")){
+        var item = c.split('=');
+        itemData = item[0].split("-");
+        key = ""+count;
+        ret = ret + (parseInt(itemData[3])*parseInt(item[1]));
+        count = count +1;
+      }
+    }
+    return ret;  
+}
+
 function cartCookies(){
 //find the value of the given cookies 
 var name = "PLCART-";
