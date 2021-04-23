@@ -50,13 +50,9 @@
 								<p class="distance">{{ product.s_FK.distance }}</p>
 							</div>
 							<div class="aligned">
-								<select class="select-quantity" name="quantity" style="font-size:12px;">
-									<optgroup label="Quantity:">
-										<option value="1" selected>1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-									</optgroup>
-								</select>
+							<label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" min="0" value="{{product.qty}}"> 
+                                                         
 								<!-- onclick function below takes in two parameters, the product pk and the quantity of the product
 								You can change the parameter to each field of the product instead of the pk and accessing them later -->
 								<button class="btn btn-primary" onclick="addToCart( 'PLCART-{{product.s_FK.s_name}}-{{product.p_name}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Add to cart</button>
