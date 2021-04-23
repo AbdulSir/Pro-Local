@@ -94,6 +94,7 @@ def cart(request):
                         productName = product.p_name
                         productLink = product.p_link
                         productValue = product.price*qty
+                        productCode = key
                         context["total"] = context["total"]+productValue
                         productImg = product.img
                         #set the shop if it does not exist already
@@ -101,7 +102,7 @@ def cart(request):
                         print(shop)
                         #update the shops stored total
                         shop["total"] = shop["total"]+productValue
-                        shop["products"][name+"-"+productName] = {"qty":qty, "price":productPrice, "value":productValue, "img":product.img, "link":productLink}
+                        shop["products"][name+"-"+productName] = {"qty":qty, "price":productPrice, "value":productValue,"code":productCode, "img":product.img, "link":productLink}
                         print(shop)
                         context["shops"][name] = shop
     print(context)

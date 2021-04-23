@@ -28,7 +28,7 @@
                                                                 </div>
                                                                 <label for="quantity">Quantity:</label>
                                                                 <input type="number" id="quantity" name="quantity" min="0" value="{{product.qty}}"> 
-                                                                <button class="btn btn-primary" onclick="updateCart( 'PLCART-:-{{product.s_FK.s_name}}-:-{{product.p_name}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Update Cart</button>
+                                                                <button class="btn btn-primary" onclick="updateCart( '{{product.code}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Update Cart</button>
                                                                 
                                                             </div>
                                                         </div>
