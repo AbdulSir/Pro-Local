@@ -66,7 +66,8 @@ def cart(request):
         #PLCART-SNAME-PNAME
         if "PLCART" in key:
             keys = key.split("-:-")
-            if len(keys)>=3:
+            qty = int(value)
+            if len(keys)>=3 and qty > 0:
                 #at least 3 parts to the key, find me the store
                 store = Shop.objects.filter(s_name=keys[1]).first()               
                 #print("NEXT")
