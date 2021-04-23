@@ -79,6 +79,17 @@
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/script.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script>
+	//This is for testing purposes. Whenever you load the document we prompt the user to enter his username
+	//Also, we acknowledge that we use cookies
+	$(document).ready(function(){
+		//This var below acknowledges the use of cookies
+		if(getCookie("hello")!=""){
+		    alert("Pro-Local uses cookies when you visit our website to help customize the site and improve your experience. We also use cookies to store your products in the cart.");
+            setCookie("hello", "true", 1);
+        }
+	});
+</script>
 </body>
 
 </html>

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.core import serializers
 from django.http import HttpResponse
 from django.contrib import messages
+from django.template import RequestContext
 import urllib.request
 import json
 from .models import *
@@ -55,15 +56,12 @@ def shop(request):
     return render(request, 'shop.html', context=context) # render the view
 
 def cart(request):
-    # this takes care of generating all the information for the inventory view.
     return render(request, 'cart.html') # render the view
 
 def about(request):
-    # this takes care of generating all the information for the inventory view.
     return render(request, 'about.html') # render the view
 
 def stores(request):
-    # this takes care of generating all the information for the inventory view.
     context = {}
     if request.method == 'GET':
         queryDict = request.GET
@@ -82,3 +80,14 @@ def stores(request):
         else:
             return HttpResponseNotFound("No Store Found")
     return render(request, 'stores.html', context=context) # render the view
+
+def handler404(request, exception, template_name="404.html"):
+    response = render_to_response(template_name)
+    response.status_code = 404
+    return response
+
+
+def handler500(request, exception, template_name="500.html"):
+    response = render_to_response(template_name)
+    response.status_code = 500
+    return response
