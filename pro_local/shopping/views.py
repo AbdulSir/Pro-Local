@@ -26,6 +26,7 @@ def shop(request):
         #Searching for the inventory of a nearby store based on the first 3 characters of the postal code
         for shop in shops:
             if location.lower() == shop.postal_code[0].lower():
+                print(shop)
                 #adjust the distance of this store according to the location of the client
                 origin = postal #user postal code
                 destination = shop.postal_code #Store postal code, taken from the shops model
@@ -38,10 +39,7 @@ def shop(request):
                 product = Product.objects.filter(s_FK=shop.pk).all()
                 if product is not None:
                     for item in product:
-                        product_list.append(item)
-                        print(item)
-            else:
-                return render(request, 'shop.html', context=context) 
+                        product_list.append(item) 
         if len(product_list) > 0:
             for item in product_list:
                 if searched_item.lower() in item.p_name.lower():

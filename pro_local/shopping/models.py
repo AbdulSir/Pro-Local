@@ -16,7 +16,7 @@ class Shop(models.Model):
 
 class Product(models.Model):
     p_name = models.CharField(null=False, blank=False, max_length=80, unique=True)
-    p_keys = models.CharField(null=False, blank=False, max_length=160, unique=True)
+    p_keys = models.CharField(null=False, blank=False, max_length=160, unique=False)
     p_link = models.CharField(max_length=1000)
     price = models.DecimalField(decimal_places=2, null=False, blank=False, max_digits=9)
     s_FK = models.ForeignKey(Shop, on_delete=models.CASCADE)
