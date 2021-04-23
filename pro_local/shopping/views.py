@@ -14,6 +14,8 @@ def shop(request):
     if request.method == 'POST':
         #get the postal code from the post request
         postal = request.POST.get('postal')
+        if postal == "":
+            postal = "H3H1L2"
         #if there's a space in the postal code, we clean it up
         if len(postal) == 7:
             postal = postal.replace(" ", "")

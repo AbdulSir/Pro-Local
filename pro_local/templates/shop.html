@@ -6,43 +6,9 @@
 	//This is for testing purposes. Whenever you load the document we prompt the user to enter his username
 	//Also, we acknowledge that we use cookies
 	$(document).ready(function(){
-		checkCookie();
+		//This var below acknowledges the use of cookies
+		alert("Pro-Local uses cookies when you visit our website to help customize the site and improve your experience. We also use cookies to store your products in the cart. Please enter your:");
 	});
-
-	function setCookie(cname, cvalue) {
-		var d = new Date();
-		d.setTime(d.getTime() + (30 * 60 * 1000));//half an hour 30 * 60 * 1000ms(1 sec)
-		var expires = "expires="+d.toUTCString();
-		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-	}
-
-	function getCookie(cname) {
-		var name = cname + "=";
-		var ca = document.cookie.split(';');
-		for(var i = 0; i < ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-			}
-			if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-			}
-		}
-		return "";
-	}
-	//This var below acknowledges the use of cookies
-	var ack = "Pro-Local uses cookies when you visit our website to help customize the site and improve your experience. We also use cookies to store your products in the cart. Please enter your:";
-	function checkCookie() {
-		var user = getCookie("username");
-		if (user != "") {
-			alert("Welcome again " + user);
-		} else {
-			user = prompt(ack, "");
-			if (user != "" && user != null) {
-			setCookie("username", user);
-			}
-		}
-	}
 </script> 
 <section class="newsletter-subscribe" style="background: #ffffff;">
 	<div class="container">
