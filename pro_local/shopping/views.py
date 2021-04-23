@@ -58,7 +58,9 @@ def shop(request):
 def cart(request):
     #iterate the cookies to find the store cookies
     context = {"shops":{}}
-    for key, value in request.COOKIES:
+    print(request.COOKIES)
+    print(type(request.COOKIES))
+    for key, value in dict(request.COOKIES):
         #check if this is a cart cookie
         #PLCART-SNAME-PNAME
         if "PLCART" in key:
