@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.core import serializers
 from django.http import HttpResponse
 from django.contrib import messages
@@ -81,13 +81,8 @@ def stores(request):
             return HttpResponseNotFound("No Store Found")
     return render(request, 'stores.html', context=context) # render the view
 
-def handler404(request, exception, template_name="404.html"):
-    response = render_to_response(template_name)
-    response.status_code = 404
-    return response
+def 404(request):
+    return render(request, '404.html', status=404) # render the view
 
-
-def handler500(request, exception, template_name="500.html"):
-    response = render_to_response(template_name)
-    response.status_code = 500
-    return response
+def 500(request):
+    return render(request, '500.html', status=500) # render the view
