@@ -102,6 +102,7 @@ def cart(request):
                         shop["products"][name+"-"+productName] = {"qty":qty, "price":productPrice, "value":productValue, "img":product.img, "link":productLink}
                         print(shop)
                         context["shops"][name] = shop
+    print(context)
     return render(request, 'cart.html', context = context) # render the view
 
 def about(request):
