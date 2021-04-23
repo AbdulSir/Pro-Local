@@ -57,7 +57,7 @@ def shop(request):
 
 def cart(request):
     #iterate the cookies to find the store cookies
-    context = {}
+    context = {"total":0}
     print(request.COOKIES)
     print(type(request.COOKIES))
     for key in dict(request.COOKIES):
@@ -93,6 +93,7 @@ def cart(request):
                         productName = product.p_name
                         productLink = product.p_link
                         productValue = product.price*qty
+                        context["total"] = context["total"]+productValue
                         productImg = product.img
                         #set the shop if it does not exist already
                         shop = context["shops"].get(name, {"products":products, "name":name, "total":total, "link":link, "distance":distance})

@@ -3,7 +3,7 @@
 {% block content %}
     <section>
         <div class="container"><div class="cart-heading" style="text-align: center; font-size: 28px; color:#490b3d">Cart</div>
-        <div class="center"></div>
+        <div class="center">Total: ${{total}}</div>
             <div>
             {% if shops %}
                 {% for key, shop in shops.items %}
@@ -22,13 +22,13 @@
                                                                 <p style="color: rgb(73,11,61);">{{ product.p_name }}</p>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="price" style="color:#490b3d">
+                                                                <div class="price center" style="color:#490b3d">
                                                                     <small>${{ product.value }}</small>
-                                                                    <sub>${{ product.price }} each</sub>
+                                                                    <sub>${{ product.price }} each</sub><br>
+                                                                    <label for="quantity">Quantity:</label>
+                                                                    <input type="number" id="quantity" name="quantity" min="0" value="{{product.qty}}"> 
+                                                                    <button class="btn btn-primary" onclick="updateCart( 'PLCART-:-{{product.s_FK.s_name}}-:-{{product.p_name}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Update Cart</button>
                                                                 </div>
-                                                                <label for="quantity">Quantity:</label>
-                                                                <input type="number" id="quantity" name="quantity" min="0" value="{{product.qty}}"> 
-                                                                <button class="btn btn-primary" onclick="updateCart( 'PLCART-:-{{product.s_FK.s_name}}-:-{{product.p_name}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Update Cart</button>
                                                             </div>
                                                         </div>
                                                     </div>
