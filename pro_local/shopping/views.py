@@ -77,6 +77,11 @@ def cart(request):
                     product = Product.objects.filter(s_FK__s_name=keys[1]).filter(p_name=keys[2]).first()
                     if product is not None:
                         print(product)
+                        #use the get function to create a new elelemnt if it can not be found
+                        check = context.get("shops", None)
+                        if check is None:
+                            #set the context shops value
+                            context["shops"] = {}
                         products = {}
                         name = keys[1]
                         total = 0
