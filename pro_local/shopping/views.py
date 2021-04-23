@@ -80,9 +80,3 @@ def stores(request):
         else:
             return HttpResponseNotFound("No Store Found")
     return render(request, 'stores.html', context=context) # render the view
-
-def 404(request):
-    return render(request, '404.html', status=404) # render the view
-
-def 500(request):
-    return render(request, '500.html', status=500) # render the view
