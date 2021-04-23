@@ -26,7 +26,7 @@ SECRET_KEY = '0a2(np9x$t-o7_^%xyj&49_v_qal0*f_t)j(%f@*ksy!tz_i+q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://guarded-cliffs-37637.herokuapp.com/']
+ALLOWED_HOSTS = ['guarded-cliffs-37637.herokuapp.com']
 
 
 # Application definition
