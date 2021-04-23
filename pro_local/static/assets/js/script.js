@@ -64,11 +64,10 @@ if (test!=""){
 
 function updateCart(code, qty){
   alert("Cart Updated")
+  killCookie(code);
   if(parseInt(qty)>0){
     setCookie(code, qty, 1);
-  } else{
-    killCookie(code);
-  }
+  } 
   location.reload();
 }
 
