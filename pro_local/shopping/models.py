@@ -24,10 +24,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.p_name
-    #pip install Pillow for the images to work
-
-    # https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=H4N+3B6&destinations=H4N+3K1&key=AIzaSyATsUAiN8HGEmtdItkO3n5E74FEKAelw5o
-
 
 
 

@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="{% static 'assets/css/Newsletter-Subscription-Form.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Lightbox-Gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css' %}">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
 
 <body style="background: rgb(255, 255, 255);font-family: 'Cantora One', sans-serif;color: rgb(0,0,0);">
@@ -52,7 +55,7 @@
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"><i class="fa fa-search" style="color: rgb(241,184,20);"></i></label><input class="form-control search-field" type="search" id="search-field" name="search"></div>
-                </form><a class="btn btn-light action-button" role="button" href="#" style="background: #bd1e51;font-family: 'Cantora One', sans-serif;color: rgb(255, 255, 255);">Cart</a>
+                </form><a class="btn btn-light action-button" role="button" href="{% url 'cart' %}" style="background: #bd1e51;font-family: 'Cantora One', sans-serif;color: rgb(255, 255, 255);">Cart</a>
             </div>
         </div>
     </nav>

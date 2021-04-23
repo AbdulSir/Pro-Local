@@ -1,6 +1,49 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+<script>
+	//This is for testing purposes. Whenever you load the document we prompt the user to enter his username
+	//Also, we acknowledge that we use cookies
+	$(document).ready(function(){
+		checkCookie();
+	});
+
+	function setCookie(cname, cvalue) {
+		var d = new Date();
+		d.setTime(d.getTime() + (30 * 60 * 1000));//half an hour 30 * 60 * 1000ms(1 sec)
+		var expires = "expires="+d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+	//This var below acknowledges the use of cookies
+	var ack = "Pro-Local uses cookies when you visit our website to help customize the site and improve your experience. We also use cookies to store your products in the cart. Please enter your:";
+	function checkCookie() {
+		var user = getCookie("username");
+		if (user != "") {
+			alert("Welcome again " + user);
+		} else {
+			user = prompt(ack, "");
+			if (user != "" && user != null) {
+			setCookie("username", user);
+			}
+		}
+	}
+</script> 
 <section class="newsletter-subscribe" style="background: #ffffff;">
 	<div class="container">
 		<div class="intro">
@@ -49,16 +92,23 @@
 								<p class="distance">{{ product.s_FK.distance }}</p>
 							</div>
 							<div class="aligned">
-								<button class="btn btn-primary" onclick="addToCart({{message.code}});" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Add to cart</button>
+								<select class="select-quantity" name="quantity" style="font-size:12px;">
+									<optgroup label="Quantity:">
+										<option value="1" selected>1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</optgroup>
+								</select>
+								<!-- onclick function below takes in two parameters, the product pk and the quantity of the product
+								You can change the parameter to each field of the product instead of the pk and accessing them later -->
+								<button class="btn btn-primary" onclick="addToCart( '{{product.pk}}', document.querySelector('#quantity').value)" type="button" style="background: #bd1e51; border: 2px solid #f44336;">Add to cart</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<hr class="dashed" /> </div>
 			{% endfor %}
-		{%endif%}
-		
-		
+		{%endif%}	
 	</div>
 </section>
-{% endblock %} 
+{% endblock %}

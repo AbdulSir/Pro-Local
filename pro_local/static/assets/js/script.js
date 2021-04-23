@@ -28,6 +28,10 @@ function getCookie(cname) {
   return "";
 }
 
+//Pro-Local uses cookies when you visit our website to help customize the Site and improve your experience. We also use cookies
+//to store your products in the cart.
+//Please enter your: 
+
 //COOKIE FORMAT: PLCART-SNAME-PNAME
 //the following 
 

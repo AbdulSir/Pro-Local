@@ -54,12 +54,7 @@ def shop(request):
 
 def cart(request):
     # this takes care of generating all the information for the inventory view.
-    context = {}
-    if request.method == 'GET':
-        context = {
-
-        }
-    return render(request, 'cart.html', context=context) # render the view
+    return render(request, 'cart.html') # render the view
 
 def about(request):
     # this takes care of generating all the information for the inventory view.
