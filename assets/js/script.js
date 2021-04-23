@@ -31,14 +31,41 @@ function setCookie(cname, cvalue, exdays) {
 //COOKIE FORMAT: PLCART-SNAME-PNAME-PRICE
 //the following 
 
-function addToCart(code){
+function addToCart(code, qty){
   var test = getCookie(code);
   if (test!=""){
     //kill the value of the cookie
     killCookie(code);
-    
+    var oldValue = parseInt(test);
+    var newValue = parseInt(qty)+oldValue;
+    setCookie(code, String(newValue), 1);
   } else {
+    setCookie(code, String(qty), 1);
+  }
+}
 
+function removeFromCart(code, qty){
+  var test = getCookie(code);
+  if (test!=""){
+    //kill the value of the cookie
+    killCookie(code);
+    var oldValue = parseInt(test);
+    var newValue = oldValue-parseInt(qty);
+    if (newValue>0){
+      setCookie(code, String(newValue), 1);
+    }
+  } else {
+    if(parseInt(qty)>0){
+      setCookie(code, String(qty), 1);
+    }
+  }
+}
+
+function updateCart(code, qty){
+  if(parseInt(qty)>0){
+    setCookie(code, String(qty), 1);
+  } else{
+    killCookie(code);
   }
 }
 
