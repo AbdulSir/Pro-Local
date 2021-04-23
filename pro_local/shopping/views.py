@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 import urllib.request
 import json
-from shopping.models import *
+from .models import *
 
 # Create your views here.
 
