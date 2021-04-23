@@ -63,11 +63,12 @@ if (test!=""){
 }
 
 function updateCart(code, qty){
-if(parseInt(qty)>0){
-  setCookie(code, String(qty), 1);
-} else{
-  killCookie(code);
-}
+  alert("Cart Updated")
+  if(parseInt(qty)>0){
+    setCookie(code, String(qty), 1);
+  } else{
+    killCookie(code);
+  }
 }
 
 function getCartQty(code){

@@ -87,11 +87,11 @@ def cart(request):
                         productValue = product.price*qty
                         productImg = product.img
                         #set the shop if it does not exist already
-                        shop = context[shops].get(name, {"products":products, "name":name, "total":total, "link":link, "distance":distance})
+                        shop = context["shops"].get(name, {"products":products, "name":name, "total":total, "link":link, "distance":distance})
                         #update the shops stored total
                         shop["total"] = shop["total"]+productValue
                         shop["products"][name+"-"+productName] = {"qty":qty, "price":productPrice, "value":productValue, "img":product.img, "link":productLink}
-                        context[shops][name] = shop
+                        context["shops"][name] = shop
     return render(request, 'cart.html', context = context) # render the view
 
 def about(request):
