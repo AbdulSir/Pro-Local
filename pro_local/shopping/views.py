@@ -57,7 +57,7 @@ def shop(request):
 
 def cart(request):
     #iterate the cookies to find the store cookies
-    context = {"shops":{}}
+    context = {}
     print(request.COOKIES)
     print(type(request.COOKIES))
     for key in dict(request.COOKIES):
@@ -69,9 +69,12 @@ def cart(request):
             if len(keys)>=3:
                 #at least 3 parts to the key, find me the store
                 store = Shop.objects.filter(s_name=keys[1]).first()               
+                print("NEXT")
+                print(keys[1])
+                print(keys[2])
                 if store is not None:
                     print(store)
-                    product = Product.objects.filter(s_FK=store).filter(p_name=keys[2]).first()
+                    product = Product.objects.filter(s_FK.s_name=keys[1]).filter(p_name=keys[2]).first()
                     if product is not None:
                         print(product)
                         products = {}
