@@ -60,7 +60,8 @@ def cart(request):
     context = {"shops":{}}
     print(request.COOKIES)
     print(type(request.COOKIES))
-    for key, value in dict(request.COOKIES):
+    for key in dict(request.COOKIES):
+        value = request.COOKIES.get(key)
         #check if this is a cart cookie
         #PLCART-SNAME-PNAME
         if "PLCART" in key:
