@@ -165,6 +165,5 @@ function createShopNode(image, name, store, price, distance){
   var addToCartBTNTXT = document.createTextNode("Add to cart");
   addToCartBTN.appendChild(addToCartBTNTXT);
   addToCart.appendChild(addToCartBTN);
-
-  
+  return box;
 }
