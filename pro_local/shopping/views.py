@@ -71,7 +71,7 @@ def cart(request):
                 store = Shop.objects.filter(s_name=keys[1]).first()               
                 if store is not None:
                     product = Product.objects.filter(s_FK=store).filter(p_name=keys[2]).first()
-                    if store is not None:
+                    if product is not None:
                         products = {}
                         name = keys[1]
                         total = 0
