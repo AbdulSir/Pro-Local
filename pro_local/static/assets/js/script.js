@@ -68,7 +68,7 @@ function updateCart(code, qty){
   if(parseInt(qty)>0){
     setCookie(code, qty, 1);
   } 
-  location.reload();
+  window.location.assign("/cart");
 }
 
 function getCartQty(code){
