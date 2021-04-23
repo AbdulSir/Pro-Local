@@ -69,9 +69,9 @@ def cart(request):
             if len(keys)>=3:
                 #at least 3 parts to the key, find me the store
                 store = Shop.objects.filter(s_name=keys[1]).first()               
-                print("NEXT")
-                print(keys[1])
-                print(keys[2])
+                #print("NEXT")
+                #print(keys[1])
+                #print(keys[2])
                 if store is not None:
                     print(store)
                     product = Product.objects.filter(s_FK__s_name=keys[1]).filter(p_name=keys[2]).first()
@@ -96,9 +96,11 @@ def cart(request):
                         productImg = product.img
                         #set the shop if it does not exist already
                         shop = context["shops"].get(name, {"products":products, "name":name, "total":total, "link":link, "distance":distance})
+                        print(shop)
                         #update the shops stored total
                         shop["total"] = shop["total"]+productValue
                         shop["products"][name+"-"+productName] = {"qty":qty, "price":productPrice, "value":productValue, "img":product.img, "link":productLink}
+                        print(shop)
                         context["shops"][name] = shop
     return render(request, 'cart.html', context = context) # render the view
 
