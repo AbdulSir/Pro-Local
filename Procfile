@@ -1,1 +1,1 @@
-web: gunicorn SOEN357Project.wsgi --log-file -
+web: gunicorn pro_local.wsgi --log-file -
