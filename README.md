@@ -34,7 +34,7 @@ The goals of this UI/UX project are:
     <li>Heroku </li>
   </ul>
   
- <h1>Team members</h1>
+<h1>Team members</h1>
 
   <ul>
     <li>Abdul Sirawan 40074202 </li>
@@ -42,3 +42,19 @@ The goals of this UI/UX project are:
     <li>Qandeel Arshad 40041524 </li>
     <li>Tyler Znoj 4005987 </li>
   </ul>
+  
+<h1>Documentation</h1>
+  
+Project Pitch
+https://docs.google.com/document/d/1PfcLy_bjo5zclj5zOtyn4wUjsEEIFfIGNshPPPPVZG8/edit?usp=sharing
+
+Proposal
+https://docs.google.com/document/d/1aupmbUXHmKucJXcbil3nEie_oUH30ov6xrWSkH0AbOo/edit?usp=sharing
+  
+Research and Objectives
+https://docs.google.com/document/d/1_morDbBSvofejYOAIY3K57QJixlMAZeK9Zi7XHezI0U/edit?usp=sharing
+
+Final Report
+https://docs.google.com/document/d/1p7BVmQLfreD8-f-8FJk4DFLHL_DiC-l78GKrN2WC_wI/edit?usp=sharing
+  
+  
